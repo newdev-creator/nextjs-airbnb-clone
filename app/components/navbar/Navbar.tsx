@@ -19,7 +19,9 @@ const Navbar = () => {
               gap-3
               md:gap-0
             "
-          ></div>
+          >
+            <Logo />
+          </div>
         </Container>
       </div>
     </div>
