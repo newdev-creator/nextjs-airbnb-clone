@@ -3,7 +3,7 @@
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
-import MenuItem from "./Menuitem";
+import MenuItem from "./MenuItem";
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,8 +73,8 @@ const UserMenu = () => {
         >
           <div className="flex flex-col cursor-pointer">
             <>
-              {/* TODO: Stopped at 32mins */}
-              <MenuItem />
+              <MenuItem onClick={() => {}} label="Login" />
+              <MenuItem onClick={() => {}} label="Sign up" />
             </>
           </div>
         </div>
