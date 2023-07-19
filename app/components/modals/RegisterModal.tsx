@@ -32,7 +32,7 @@ const RegisterModal = () => {
     setIsLoading(true);
 
     axios
-      .get("/api/register", data)
+      .post("/api/register", data)
       .then(() => {
         RegisterModal.onClose();
       })
