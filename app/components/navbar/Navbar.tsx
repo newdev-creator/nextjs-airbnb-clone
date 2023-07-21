@@ -37,6 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
           </div>
         </Container>
       </div>
+      {/* TODO: 2:45:00 */}
     </div>
   );
 };
