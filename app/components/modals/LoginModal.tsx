@@ -109,7 +109,7 @@ const LoginModal = () => {
               gap-2
             "
           >
-            Already have an account?
+            First time using Airbnb?
           </div>
           <div
             onClick={RegisterModal.onClose}
