@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: "Airbnb",
   description: "Arbnb clone",
 };
-// 4:49:00
+// 4:49:19
 export default async function RootLayout({
   children,
 }: {
