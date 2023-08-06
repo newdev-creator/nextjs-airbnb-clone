@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Heading from "./Heading";
+import Button from "./Button";
 
 interface EmptyState {
   title?: string;
@@ -14,7 +15,6 @@ const EmptyState: React.FC<EmptyState> = ({
   subtitle = "Try changing or removing some of your filters",
   showReset,
 }) => {
-  // 4:54:00
   const router = useRouter();
   return (
     <div
@@ -27,7 +27,16 @@ const EmptyState: React.FC<EmptyState> = ({
         items-center
       "
     >
-      <Heading />
+      <Heading center title={title} subtitle={subtitle} />
+      <div className="w-48 mt-4">
+        {showReset && (
+          <Button
+            outline
+            label="Remove all filters"
+            onClick={() => router.push("/")}
+          />
+        )}
+      </div>
     </div>
   );
 };
