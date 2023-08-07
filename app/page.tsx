@@ -40,7 +40,6 @@ export default async function Home() {
                 key={listing.id}
                 data={listing}
               />
-              // 5:43:26
             );
           })}
         </div>
