@@ -1,7 +1,9 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Reservation } from "@prisma/client";
+import { eachDayOfInterval } from "date-fns";
 
 import { categories } from "@/app/components/navbar/Categories";
 import { SafeListing, SafeUser } from "@/app/types";
@@ -9,6 +11,13 @@ import { SafeListing, SafeUser } from "@/app/types";
 import Container from "@/app/components/Container";
 import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
+import useLoginModal from "@/app/hooks/useLoginModal";
+
+const initialSateRange = {
+  startDate: new Date(),
+  endStart: new Date(),
+  key: "selection",
+};
 
 interface ListingClientProps {
   reservation?: Reservation[];
@@ -20,8 +29,30 @@ interface ListingClientProps {
 
 const ListingClient: React.FC<ListingClientProps> = ({
   listing,
+  reservation = [],
   currentUser,
 }) => {
+  const loginModal = useLoginModal();
+  const router = useRouter();
+
+  const disabledDAtes = useMemo(() => {
+    let dates: Date[] = [];
+
+    reservation.forEach((reservation) => {
+      const range = eachDayOfInterval({
+        start: new Date(reservation.startDate),
+        end: new Date(reservation.endDate),
+      });
+
+      dates = [...dates, ...range];
+    });
+
+    return dates;
+  }, [reservation]);
+
+  const [isLoading, setIsLoading] = useState(false);
+  // 6:21:41
+
   const category = useMemo(() => {
     return categories.find((item) => item.label === listing.category);
   }, [listing.category]);
