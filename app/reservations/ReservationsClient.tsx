@@ -20,6 +20,7 @@ const ReservationsClient: React.FC<ReservationClientProps> = ({
   reservations,
   currentUser,
 }) => {
+  //7:24:27
   return (
     <Container>
       <Heading title="Reservations" subtitle="Bookings on your properties" />
